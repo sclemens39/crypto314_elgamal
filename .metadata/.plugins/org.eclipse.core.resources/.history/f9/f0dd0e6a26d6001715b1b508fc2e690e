@@ -1,0 +1,31 @@
+package elgamal;
+import java.util.*;
+import java.math.*;
+
+public class elgamal_ecryption {
+	
+	//p = large prime
+	//a = primitive root of p
+	//x = random int
+	//b = a^x (mod p) 
+	//k = key
+	
+	int p,a,b,k;
+	
+	int x = (int)Math.random()*100;
+	
+	int findPrim(int p){
+		// return prime root of random number (assume p)
+		int counter = 2;
+		
+		while(counter * counter < p){
+			if(p % counter == 0){
+				return counter;
+			} else {
+				counter++;
+			}
+		}
+		
+		return counter;
+	}
+}
