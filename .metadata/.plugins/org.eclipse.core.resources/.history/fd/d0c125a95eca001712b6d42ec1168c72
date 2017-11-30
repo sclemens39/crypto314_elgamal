@@ -1,0 +1,18 @@
+package elgamal;
+import java.util.*;
+import java.math.*;
+
+public class elgamal_ecryption {
+	
+	//p = large prime
+	//a = primitive root of p
+	//x = random int
+	//b = a^x (mod p) 
+	//k = key
+	
+	static int p=0, a=0, x=0;
+	int b=0;
+	int k=0;
+	
+	x = Math.random()*100;
+}

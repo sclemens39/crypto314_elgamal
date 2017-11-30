@@ -1,0 +1,12 @@
+package elgamal;
+
+public class elgamal_ecryption {
+	//p = large prime
+	//a = primitive root of p
+	//x = random int
+	//b = a^x (mod p) 
+	
+	static int p=0, a=0, x=0;
+	int b=0;
+	
+}
