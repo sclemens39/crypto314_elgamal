@@ -1,0 +1,51 @@
+package elgamal;
+import java.util.*;
+import java.math.*;
+
+public class elgamal_encryption {
+	
+	//p = large prime (in our case: with any p <= 100000)
+	//a = primitive root of p
+	//x = random int
+	//b = a^x (mod p) 
+	//k = key
+	
+	int p,a,b,k;
+	Random rand = new Random();
+
+	elgamal_encryption(){
+		
+	}
+	void findPrimitiveRoot(int p){
+		/*
+		 * If p is a prime number, a primitive root mod p is a 
+		 * number whose powers yield every nonzero residue mod p.
+		 */
+		
+		
+	}
+	
+	boolean isPrime(int x){
+		if(x % 2 == 0){
+			return false;
+		}
+		return true;
+	}
+	
+	public int generateLargePrime(){
+		int largePrime = 3;
+		//random value <= 100000
+		int  n = rand.nextInt(100000);
+		
+		//while int range is not exceeded multiply largePrime with random number
+		//until prime returned
+		while(largePrime <= 100000 && !isPrime(largePrime)){
+			largePrime = largePrime * n;
+			if(isPrime(largePrime)){
+				return largePrime;
+			}
+		}
+		return largePrime;
+	}
+	
+}
