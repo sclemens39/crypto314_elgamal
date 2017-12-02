@@ -8,13 +8,9 @@ public class Elgamal_encryption {
 	
 	// utilize Singleton Design Pattern so other classes
 	// cannot have access to encryption methods/ code
-	private static Elgamal_encryption elgamalEncryption;
+	private static Elgamal_encryption elgamalEncryption = new Elgamal_encryption();
 	
 	public static Elgamal_encryption getInstance(){
-		
-		if (elgamalEncryption == null){
-			elgamalEncryption = new Elgamal_encryption();
-		}
 		return elgamalEncryption;
 	}
 	Elgamal_encryption(){
@@ -85,8 +81,20 @@ public class Elgamal_encryption {
         else 
             return x * expBySquaring(x * x, (n - 1)/2);    
     }
-    	
-    void encrypt(String message){
+    
+    void getBlock(){
+    	// read every 3 letters in from .txt file
+    	File message = new File("C:\\Users\\MasterScribe\\Desktop\\Crypto\\Project\\elgamal\\src\\elgamal\\message.txt")
+    	Scanner input = new Scanner(message);
     	
     }
+    void convertText(){
+    /*
+     * (1) read in from .txt file
+     * (2) every 3 letters = 1 cipher block; example: cat -> 2 * 262 + 0 * 26 + 19 = 1371
+     * (3) output to new file new ciphertext (using sequential filenames AKA ct1.txt, ct2.txt,...)
+     */
+    
+    }
+	
 }

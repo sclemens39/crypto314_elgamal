@@ -1,27 +1,21 @@
 package elgamal;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
 import java.math.*;
 
-public class Elgamal_encryption {
+public class elgamal_encryption {
 	
 	// utilize Singleton Design Pattern so other classes
 	// cannot have access to encryption methods/ code
-	private static Elgamal_encryption elgamalEncryption;
+	private static elgamal_encryption elgamalEncryption = new elgamal_encryption();
 	
-	public static Elgamal_encryption getInstance(){
-		
-		if (elgamalEncryption == null){
-			elgamalEncryption = new Elgamal_encryption();
-		}
+	public static elgamal_encryption getInstance(){
 		return elgamalEncryption;
 	}
-	Elgamal_encryption(){
+	elgamal_encryption(){
 		//default constructor
 	}
 	
-	private	Elgamal_encryption(int p, int a, int b, int k){
+	private	elgamal_encryption(int p, int a, int b, int k){
 		// private para constructor, required for singleton
 		// (initializes variables when we call class in main)
 		this.p = p;
@@ -85,8 +79,13 @@ public class Elgamal_encryption {
         else 
             return x * expBySquaring(x * x, (n - 1)/2);    
     }
-    	
-    void encrypt(String message){
-    	
+    
+    void convertText(){
+    /*
+     * (1) read in from .txt file
+     * (2) every 3 letters = 1 cipher block; example: cat -> 2 * 262 + 0 * 26 + 19 = 1371
+     */
+    
     }
+	
 }

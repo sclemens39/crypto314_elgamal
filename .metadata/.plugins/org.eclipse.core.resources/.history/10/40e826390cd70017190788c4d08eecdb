@@ -86,7 +86,4 @@ public class Elgamal_encryption {
             return x * expBySquaring(x * x, (n - 1)/2);    
     }
     	
-    void encrypt(String message){
-    	
-    }
 }

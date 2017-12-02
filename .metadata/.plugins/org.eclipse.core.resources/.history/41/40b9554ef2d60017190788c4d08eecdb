@@ -1,27 +1,21 @@
 package elgamal;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
 import java.math.*;
 
-public class Elgamal_encryption {
+public class elgamal_encryption {
 	
 	// utilize Singleton Design Pattern so other classes
 	// cannot have access to encryption methods/ code
-	private static Elgamal_encryption elgamalEncryption;
+	private static elgamal_encryption elgamalEncryption = new elgamal_encryption();
 	
-	public static Elgamal_encryption getInstance(){
-		
-		if (elgamalEncryption == null){
-			elgamalEncryption = new Elgamal_encryption();
-		}
+	public static elgamal_encryption getInstance(){
 		return elgamalEncryption;
 	}
-	Elgamal_encryption(){
+	elgamal_encryption(){
 		//default constructor
 	}
 	
-	private	Elgamal_encryption(int p, int a, int b, int k){
+	private	elgamal_encryption(int p, int a, int b, int k){
 		// private para constructor, required for singleton
 		// (initializes variables when we call class in main)
 		this.p = p;
@@ -56,7 +50,7 @@ public class Elgamal_encryption {
 		return true;
 	}
 	
-	int generateLargePrime(){
+	public int generateLargePrime(){
 		int largePrime = 3;
 		//random value <= 100000
 		int  n = rand.nextInt(100000);
@@ -72,21 +66,4 @@ public class Elgamal_encryption {
 		return largePrime;
 	}
 	
-    double expBySquaring(double x, int n)
-    {
-        if (n < 0)
-            return expBySquaring(1 / x, -n);
-        else if (n == 0)
-            return 1;
-        else if (n == 1)
-            return x;
-        else if (n % 2 == 0)
-            return expBySquaring(x * x, n / 2);
-        else 
-            return x * expBySquaring(x * x, (n - 1)/2);    
-    }
-    	
-    void encrypt(String message){
-    	
-    }
 }
