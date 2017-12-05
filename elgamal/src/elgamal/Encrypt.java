@@ -1,8 +1,6 @@
 package elgamal;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Encrypt {
@@ -17,10 +15,14 @@ public class Encrypt {
     	
     	while(input.hasNext()){
     		String word = input.next();
+    		
     		// while there is input, break up into segments of 3 letters
     		if(word.length() <= 3){
     			java.util.Arrays.toString(word.split("(?<=\\G...)")); //splits word into 3 
     			// call encryption method from Elgamal_encryption 
+    			//
+    			//
+    			// call createCipherText() ? ? ?
     			
     		} else if (word.length() > 3){
     			// determine size of word, break into segments of 3 letters
@@ -39,17 +41,23 @@ public class Encrypt {
     	}
     }
     void createCipherText(){
-    	// write cipher text to file in "(block1, block2)" form
-    	
-    	// check if file exists
+    	// check if file exists, if file exists 
+    	// make sequential file (AKA cipherText01, cipherText02, cipherText(nn)...)
     	String ct = "cipherText%02d.txt";
         File f = null;
+    	
+    	BufferedWriter toFile = new BufferedWriter(new FileWriter(f));
+    	
         for (int i = 1; i < 100; i++) {
             f = new File(String.format(ct, i));
             if (!f.exists()) {
                 break;
             }
         }
+        	// write cipher text to file in "(block1, block2)" form
+        	toFile.write("(" + block1 + "," + block2 +")");
+        	// newline
+        	// toFile.newLine();
         try {
             System.out.println(f.getCanonicalPath());
         } catch (IOException e) {
