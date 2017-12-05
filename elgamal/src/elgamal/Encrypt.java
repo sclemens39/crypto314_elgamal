@@ -11,8 +11,11 @@ public class Encrypt {
     	// read every 3 letters in from .txt file
     	File message = new File("C:\\Users\\MasterScribe\\Desktop\\Crypto\\Project\\elgamal\\src\\elgamal\\message.txt");
     	Scanner input = new Scanner(message);
-    	input.useDelimiter(" ");
+    	// dont need delimiter under the  assumption the file has no spaces
+    			// example: wowthehungrycatchased...
+    	//input.useDelimiter(" ");
     	
+    	// EOF character = .
     	while(input.hasNext()){
     		String word = input.next();
     		
@@ -54,7 +57,7 @@ public class Encrypt {
                 break;
             }
         }
-        	// write cipher text to file in "(block1, block2)" form
+        	// write cipher text to file in "(block1 = s, block2 = r)" form
         	toFile.write("(" + block1 + "," + block2 +")");
         	// newline
         	// toFile.newLine();

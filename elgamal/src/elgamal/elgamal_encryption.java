@@ -35,20 +35,43 @@ public class Elgamal_encryption {
 		x = random int
 		b = a^x (mod p) 
 		k = key
+		s = r^(-1) created from extendedEuclid
+		r^(-a) = s^a 
 	*/	
 	
 	int p,a,b,k;
 	Random rand = new Random();
 	
-	void findPrimitiveRoot(int p){
+	int findPrimitiveRoot(int p){
 		/*
 		 * If p is a prime number, a primitive root mod p is a 
 		 * number whose powers yield every nonzero residue mod p.
+		 * 
+		 * Protocol: Generate a random number between 3 & 100,000 
+		 * 			 then check if primitive root
 		 */
 		
 		
+		int primRoot = rand.nextInt(100000);
+		int count = 0;
+		if(isPrime(primRoot)){
+			// primitive root mod p is a number whose powers yield every nonzero residue mod p
+			// check if every product of primRoot^(count up to p) mod p > 0 && count < p
+			if((int)Math.pow(primRoot, count) % p > 0 && count < p){
+						count++;
+			} else {
+				System.out.print("The value generated was not a primitive root.");
+			}
+		} else {
+			System.out.print("The value generated was not prime.");
+		}
+			return primRoot;
+					/*check to see if a^380=-1(mod761);
+					 * if yes, then a is a primitive root; if not, then pick something else.
+					 * */
+				
 	}
-	
+			
 	boolean isPrime(int x){
 		if(x % 2 == 0){
 			return false;
