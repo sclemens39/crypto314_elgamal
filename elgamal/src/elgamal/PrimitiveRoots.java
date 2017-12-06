@@ -25,8 +25,6 @@ public class PrimitiveRoots {
 			k %= p;
 		}
 		if (o == (p - 1)) {
-			//form.resultbox.value += (r + " ");
-			//alert(r + " is a primitive root.");
 			roots[z] = r;
 			z++;
 		}
