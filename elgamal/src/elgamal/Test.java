@@ -8,6 +8,11 @@ Converting from numbers back to text (Note: You need to invert the above procedu
  */
 public class Test {
 	
-	
+	public static void main (String args[]){
+		PrimitiveRoots test = new PrimitiveRoots();
+		
+		test.primRoot(37);		
+	}
+
 
 }

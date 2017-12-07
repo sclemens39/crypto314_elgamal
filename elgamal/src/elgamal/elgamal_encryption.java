@@ -42,36 +42,35 @@ public class Elgamal_encryption {
 	int p,a,b,k;
 	Random rand = new Random();
 	
-	int findPrimitiveRoot(int p){
-		/*
-		 * If p is a prime number, a primitive root mod p is a 
-		 * number whose powers yield every nonzero residue mod p.
-		 * 
-		 * Protocol: Generate a random number between 3 & 100,000 
-		 * 			 then check if primitive root
-		 */
-		
-		
-		int primRoot = rand.nextInt(100000);
-		int count = 0;
-		if(isPrime(primRoot)){
-			// primitive root mod p is a number whose powers yield every nonzero residue mod p
-			// check if every product of primRoot^(count up to p) mod p > 0 && count < p
-			if((int)Math.pow(primRoot, count) % p > 0 && count < p){
-						count++;
-			} else {
-				System.out.print("The value generated was not a primitive root.");
+	public int primRoot(int p) {
+		double k;
+		int o = 1;
+		int z = 0;
+		double[] roots = new double[100000];
+		for (int r = 2; r < p; r++) {
+			k = Math.pow(r, o);
+			k %= p;
+			while (k > 1) {
+				o++;
+				k *= r;
+				k %= p;
 			}
-		} else {
-			System.out.print("The value generated was not prime.");
+			if (o == (p - 1)) {
+				roots[z] = r;
+				z++;
+			}
+			o = 1;
 		}
-			return primRoot;
-					/*check to see if a^380=-1(mod761);
-					 * if yes, then a is a primitive root; if not, then pick something else.
-					 * */
-				
+
+		z--;
+		for (int y = 0; y < z; y++) {
+			System.out.println(roots[y] + ", ");
+		}
+
+		System.out.println("and " + roots[z] + ".");
+		return -1;
 	}
-			
+
 	boolean isPrime(int x){
 		if(x % 2 == 0){
 			return false;
