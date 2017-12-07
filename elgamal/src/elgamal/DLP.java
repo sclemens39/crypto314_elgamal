@@ -3,7 +3,13 @@ import java.util.*;
 /*
  * Goal: Find k such that a^k = y(mod p). (In other words, find the position of y
  * in the huge list {a, a^2, a^3, ... ,a^(q-1)}.
+<<<<<<< HEAD
  * In short, DLP is: given a^x (mod p), find x.
+=======
+ * In short, DLP is: given a^x (mod q), find x.
+ * 
+ * Project goal: solve DLP using brute force
+>>>>>>> cd5c3171827af37f471e979f83bd373d69584ba3
  */
 public class DLP extends PrimitiveRoots {
 	
