@@ -94,8 +94,8 @@ public class Elgamal_encryption {
 		return largePrime;
 	}
 	
-    double expBySquaring(double x, int n)
-    {
+    double expBySquaring(double x, int n){
+    	//returns the modular exponentiation 
         if (n < 0)
             return expBySquaring(1 / x, -n);
         else if (n == 0)
