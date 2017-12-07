@@ -1,7 +1,7 @@
 package elgamal;
 
 public class ExtendedEuclid {
-	   //  return array [d, a, b] such that d = gcd(p, q), ap + bq = d
+	   // return array [d, a, b] such that d = gcd(p, q), ap + bq = d
 	   static int[] gcd(int p, int q) {
 	      if (q == 0)
 	         return new int[] { p, 1, 0 };

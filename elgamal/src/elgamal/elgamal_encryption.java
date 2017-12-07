@@ -65,5 +65,25 @@ public class elgamal_encryption {
 		}
 		return largePrime;
 	}
+
+	public int discreteLog() {
+		return 0;
+	}
+
+	private int primitiveRoot(int largePrime) {
+		int n = 0;
+		int p = largePrime;
+
+		double result1 = Math.pow(2,1 ) % p;
+		double result2 = Math.pow(2,(p-1)) % p;
+
+		//Checks if p is a valid primitive root
+		if(result1 > 1 && result1 <= (p-1)) {
+			if(result2 > 1 && result2 <= (p-1)) {
+				result1 = result2;
+			}
+		}
+		return (int) result1;
+	}
 	
 }
