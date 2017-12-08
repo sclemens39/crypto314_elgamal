@@ -25,26 +25,24 @@ public class Test {
 		File file = new File("C:\\Users\\MasterScribe\\Desktop\\Crypto\\Project\\elgamal\\src\\elgamal\\cipherText.txt");
 		Scanner input = new Scanner(file);
 
-		String r = null,t = null;
+		String r = null,t = null, temp = null;
 		
 		// breaks up each pair
 		input.useDelimiter(" ");
     	
     	// EOF character = .
     	while(input.hasNext()){
-    		if(input.next() != "."){
+    		/*if(input.next() != "."){
    			 break;
-   		 	} else {
+   		 	} else {*/
 	    		String word = input.next();
+	    		String word2 = input.next();
 	    		
-	    		// break down to ( block1, block2 )
-	    		// each PAIR (block1 & block2) = 3 letters ****PAIR****
-	    		String cipherBlock[] = word.split(", ");
-	    		// splits block1 and block
+	    		// "(3781," -> need to get rid of ( & ,
+	    		// .replaceAll("[(,]", "");
+	    		 r = word.replaceAll("[(),]", "");
+	    		 t = word2.replaceAll("[(),]", "");	    		 
 	    		
-	    		// r & t = String at the moment, need to cast to INT before passing back out
-	    		 cipherBlock[0] = r; 
-	    		 cipherBlock[1] = t;
 	    		 int r2 = Integer.parseInt(r);
 	    		 int t2 = Integer.parseInt(t);
 	    		 
@@ -55,7 +53,7 @@ public class Test {
 	    		 
 	    		 // if the decrypt doesnt open file
 	    		 try {
-					System.out.print(decrypt.decrypt(p, prim_Root.primRoot(p), ext.extAlgorithm(1180, 482), file));
+					System.out.print(decrypt.decrypt(prim_Root.primRoot(p), r2, t2, file));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -73,12 +71,12 @@ public class Test {
 		
 			System.out.println("File not found.");*/
 
-		System.out.println("B: " + ext.extAlgorithm(1180,482));
+		//System.out.println("B: " + ext.extAlgorithm(1180,482));
 
-		System.out.println("CipherText input: (r,t)");
+		//System.out.println("CipherText input: (r,t)");
 
 
-	}
+	//}
 
 
 
