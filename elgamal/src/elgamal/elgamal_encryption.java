@@ -4,24 +4,24 @@ import java.io.FileNotFoundException;
 import java.util.*;
 import java.math.*;
 
-public class Elgamal_encryption {
+public class elgamal_encryption {
 	
 	// utilize Singleton Design Pattern so other classes
 	// cannot have access to encryption methods/ code
-	private static Elgamal_encryption elgamalEncryption;
+	private static elgamal_encryption elgamalEncryption;
 	
-	public static Elgamal_encryption getInstance(){
+	public static elgamal_encryption getInstance(){
 		
 		if (elgamalEncryption == null){
-			elgamalEncryption = new Elgamal_encryption();
+			elgamalEncryption = new elgamal_encryption();
 		}
 		return elgamalEncryption;
 	}
-	Elgamal_encryption(){
+	elgamal_encryption(){
 		//default constructor
 	}
 	
-	private	Elgamal_encryption(int p, int a, int b, int k){
+	private	elgamal_encryption(int p, int a, int b, int k){
 		// private para constructor, required for singleton
 		// (initializes variables when we call class in main)
 		this.p = p;
@@ -42,7 +42,7 @@ public class Elgamal_encryption {
 	int p,a,b,k;
 	Random rand = new Random();
 	
-	public int primRoot(int p) {
+/*	public int primRoot(int p) {
 		double k;
 		int o = 1;
 		int z = 0;
@@ -70,7 +70,7 @@ public class Elgamal_encryption {
 		System.out.println("and " + roots[z] + ".");
 		return -1;
 	}
-
+*/
 	boolean isPrime(int x){
 		if(x % 2 == 0){
 			return false;

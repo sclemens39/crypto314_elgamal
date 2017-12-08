@@ -1,30 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package elgamal;
 import java.lang.Math;
 import elgamal.ExtendedEuclid;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Paths;
 import java.util.*;
-/**
- *
- * @author ltder
- */
+
 public class Decrypt {
-    public String Decrypt(int p, int alpha, int beta) throws IOException{
+	
+    public String decrypt(int p, int alpha, int beta, File fileName) throws IOException{
         String message = "";
-        Scanner cipher = new Scanner(Paths.get("pairs.txt"));
+        Scanner cipher = new Scanner(fileName);
         int a;
         DLP dlp = new DLP();
+        
         a = dlp.dlp(alpha,p);
+        
         while(cipher.hasNext()){
              int r = cipher.nextInt();
             int t = cipher.nextInt();
             int s = ExtendedEuclid.modinv(r, p);
-            RepeatedSquaring sToTheA = new RepeatedSquaring(); 
+          RepeatedSquaring sToTheA = new RepeatedSquaring(); 
             int m = t * sToTheA.modexp(s, a, p); //as long as the .gcd function returns just the modular inverse this will work.
             int[] letters = new int[3];//BRUTE FORCE STARTS HERE
             for(int f = 0; f < 26; f++){

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Encrypt {
 	
-	Elgamal_encryption encryption = Elgamal_encryption.getInstance();
+	elgamal_encryption encryption = elgamal_encryption.getInstance();
 	
 	void encryptMessage() throws FileNotFoundException{
     	// read every 3 letters in from .txt file
@@ -49,7 +49,12 @@ public class Encrypt {
     	String ct = "cipherText%02d.txt";
         File f = null;
     	
-    	BufferedWriter toFile = new BufferedWriter(new FileWriter(f));
+    	try {
+			BufferedWriter toFile = new BufferedWriter(new FileWriter(f));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
     	
         for (int i = 1; i < 100; i++) {
             f = new File(String.format(ct, i));
@@ -58,7 +63,7 @@ public class Encrypt {
             }
         }
         	// write cipher text to file in "(block1 = s, block2 = r)" form
-        	toFile.write("(" + block1 + "," + block2 +")");
+        	//toFile.write("(" + block1 + "," + block2 +")");
         	// newline
         	// toFile.newLine();
         try {
