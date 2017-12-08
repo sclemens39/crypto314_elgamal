@@ -1,0 +1,12 @@
+package elgamal;
+public class RepeatingSquaring{
+    // return a^b mod n
+    public int modexp(int a, int b, int n) {
+        if (b == 0) return 1;
+        long t = modexp(a, b/2, n);  // use long for intermediate computations to eliminate overflow
+        long c = (t * t) % n;
+        if (b % 2 == 1)
+           c = (c * a) % n;
+        return (int) c;
+    }
+}
